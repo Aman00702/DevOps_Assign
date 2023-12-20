@@ -1,0 +1,12 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Parameters:
+  # Define necessary parameters for VPN client setup
+
+Resources:
+  MyVPNTunnel:
+    Type: AWS::EC2::VPNConnection
+    Properties:
+      # Define VPNConnection properties
+
+  # Define other necessary resources like customer gateways, etc.
+  # Ensure proper security groups and permissions for VPN access.

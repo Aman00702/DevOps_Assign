@@ -1,0 +1,15 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Parameters:
+  # Define necessary parameters for RDS setup
+
+Resources:
+  MyAuroraDB:
+    Type: AWS::RDS::DBCluster
+    Properties:
+      # Define DBCluster properties such as engine, instance type, etc.
+      MasterUsername: !Ref DBUsername
+      MasterUserPassword: !Ref DBPassword
+      # Set up security groups, VPC settings, etc.
+
+  # Define other necessary resources like DBSubnetGroup, SecretsManager secret, etc.
+  # Ensure proper security group configurations for access control.

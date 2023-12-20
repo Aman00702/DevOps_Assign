@@ -1,0 +1,46 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Parameters:
+  VpcCIDR:
+    Type: String
+    Description: CIDR block for the VPC
+    Default: "10.0.0.0/16"
+  PublicSubnet1CIDR:
+    Type: String
+    Description: CIDR block for the first public subnet
+    Default: "10.0.1.0/24"
+  PublicSubnet2CIDR:
+    Type: String
+    Description: CIDR block for the second public subnet
+    Default: "10.0.2.0/24"
+  PrivateSubnet1CIDR:
+    Type: String
+    Description: CIDR block for the first private subnet
+    Default: "10.0.3.0/24"
+  PrivateSubnet2CIDR:
+    Type: String
+    Description: CIDR block for the second private subnet
+    Default: "10.0.4.0/24"
+
+Resources:
+  MyVPC:
+    Type: AWS::EC2::VPC
+    Properties:
+      CidrBlock: !Ref VpcCIDR
+      EnableDnsSupport: true
+      EnableDnsHostnames: true
+      Tags:
+        - Key: Name
+          Value: sharedsystem-network
+
+  PublicSubnet1:
+    Type: AWS::EC2::Subnet
+    Properties:
+      VpcId: !Ref MyVPC
+      CidrBlock: !Ref PublicSubnet1CIDR
+      AvailabilityZone: "us-east-1a"
+      MapPublicIpOnLaunch: true
+      Tags:
+        - Key: Name
+          Value: public-subnet-1
+
+ 
